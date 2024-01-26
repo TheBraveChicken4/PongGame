@@ -20,6 +20,23 @@ int main()
 	while (window.isOpen())
 
 	{
+		sf::Text pongText;
+
+		auto font = sf::Font{};
+
+		if (!font.loadFromFile("OpenSans.ttf"))
+		{
+			sf::err() << "Couldn't load font\n";
+			return -1;
+		}
+
+		pongText.setString("Pong");
+		pongText.setFont(font);
+		pongText.setCharacterSize(24);
+		pongText.setFillColor(sf::Color::Red);
+		pongText.setStyle(sf::Text::Bold);
+
+
 
 		sf::Event event;
 
@@ -39,11 +56,12 @@ int main()
 
 		window.draw(game.getPlayer1());
 		window.draw(game.getPlayer2());
+		window.draw(pongText);
 
 		window.display();
 
 	}
 
-	return 0;
+	return 1;
 
 }
