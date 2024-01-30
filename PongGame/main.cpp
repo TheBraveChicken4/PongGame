@@ -1,6 +1,15 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <map>
 #include "Setup.h"
+
+
+/*
+* This is a testing phase and nothing is done yet
+*/
+
+
+
 
 
 int main()
@@ -13,6 +22,13 @@ int main()
 
 	Setup game(sf::Vector2f(80.0, 10.0));
 
+
+	//Add color scheme for the background of the game
+	std::map<std::string, sf::Color> color_schemes;
+	color_schemes["Demon"] = sf::Color(255, 0, 0, 1);
+	color_schemes["Toothpaste"] = sf::Color(0, 255, 255, 1);
+	std::string index = "Demon";
+
 	/*
 	* Main game loop ensuring everything runs smoothly
 	*/
@@ -20,23 +36,9 @@ int main()
 	while (window.isOpen())
 
 	{
-		sf::Text pongText;
-
-		auto font = sf::Font{};
-
-		if (!font.loadFromFile("OpenSans.ttf"))
-		{
-			sf::err() << "Couldn't load font\n";
-			return -1;
-		}
-
-		pongText.setString("Pong");
-		pongText.setFont(font);
-		pongText.setCharacterSize(24);
-		pongText.setFillColor(sf::Color::Red);
-		pongText.setStyle(sf::Text::Bold);
-
-
+		/*
+		* Create color schemes in a hash map
+		*/
 
 		sf::Event event;
 
@@ -49,14 +51,18 @@ int main()
 
 				window.close();
 
+			if (event.type == sf::Keyboard::C) {
+				index = "Toothpaste";
+			}
+
 		}
 
 		// Rendering the window and accessing private variables in the game object to render players
-		window.clear();
+		window.clear(color_schemes[index]);
 
 		window.draw(game.getPlayer1());
 		window.draw(game.getPlayer2());
-		window.draw(pongText);
+		//window.draw(pongText);
 
 		window.display();
 

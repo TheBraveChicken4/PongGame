@@ -15,5 +15,6 @@ public:
 	sf::RectangleShape getPlayer1();
 	sf::RectangleShape getPlayer2();
 	Setup(sf::Vector2f size = sf::Vector2f(80.0, 10));
+	
 
 };
