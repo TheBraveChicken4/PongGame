@@ -16,6 +16,8 @@ int main()
 	sf::VideoMode dimensions = sf::VideoMode(1400, 900);
 
 	sf::RenderWindow window(dimensions, "Pong");
+
+	Player player(1300, 900 - 100);
 	
 
 
@@ -59,8 +61,8 @@ int main()
 		// Rendering the window and accessing private variables in the game object to render players
 		window.clear(color_schemes[index]);
 
-		//window.draw();
-		//window.draw(pongText);
+		window.draw(player.getShape());
+		
 
 		window.display();
 
