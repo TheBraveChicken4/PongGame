@@ -51,8 +51,11 @@ int main()
 
 				window.close();
 
-			if (event.type == sf::Keyboard::C) {
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::C)) {
 				index = "Toothpaste";
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::V)) {
+				index = "Demon";
 			}
 
 		}
@@ -65,6 +68,7 @@ int main()
 		//window.draw(pongText);
 
 		window.display();
+
 
 	}
 
