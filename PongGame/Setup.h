@@ -8,13 +8,11 @@
 */
 class Setup {
 private:
-	sf::RectangleShape player1;
-	sf::RectangleShape player2;
+	
 
 public:
-	sf::RectangleShape getPlayer1();
-	sf::RectangleShape getPlayer2();
-	Setup(sf::Vector2f size = sf::Vector2f(80.0, 10));
+	
+	Setup();
 	
 
 };

@@ -1,15 +1,12 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <map>
-#include "Setup.h"
+#include "Player.h"
 
 
 /*
 * This is a testing phase and nothing is done yet
 */
-
-
-
 
 
 int main()
@@ -19,8 +16,7 @@ int main()
 	sf::VideoMode dimensions = sf::VideoMode(1400, 900);
 
 	sf::RenderWindow window(dimensions, "Pong");
-
-	Setup game(sf::Vector2f(80.0, 10.0));
+	
 
 
 	//Add color scheme for the background of the game
@@ -29,16 +25,13 @@ int main()
 	color_schemes["Toothpaste"] = sf::Color(0, 255, 255, 1);
 	std::string index = "Demon";
 
+	sf::Vector2f mousePos;
 	/*
 	* Main game loop ensuring everything runs smoothly
 	*/
-
 	while (window.isOpen())
 
 	{
-		/*
-		* Create color schemes in a hash map
-		*/
 
 		sf::Event event;
 
@@ -58,16 +51,20 @@ int main()
 				index = "Demon";
 			}
 
+			
+			
+
 		}
 
 		// Rendering the window and accessing private variables in the game object to render players
 		window.clear(color_schemes[index]);
 
-		window.draw(game.getPlayer1());
-		window.draw(game.getPlayer2());
+		//window.draw();
 		//window.draw(pongText);
 
 		window.display();
+
+		
 
 
 	}
